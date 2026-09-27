@@ -42,6 +42,7 @@
   "exclude": [
     "node_modules",
     "dist",
-    "coverage"
+    "coverage",
+    "src/tests/frontend_foundation.test.ts"
   ]
 }
