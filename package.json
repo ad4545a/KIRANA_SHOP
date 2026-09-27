@@ -5,6 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
+    "render-build": "npm install && npm run build",
     "start": "node dist/server.js",
     "start:expo": "npx cross-env EXPO_NO_TYPESCRIPT_SETUP=1 expo start",
     "android": "expo run:android",
