@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default rule: Deny all client direct writes and reads
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Explicit Exception per PRD §14:
+    // Read-only access for mobile client notification feed
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only Express Backend via Admin SDK can write
+    }
+  }
+}
