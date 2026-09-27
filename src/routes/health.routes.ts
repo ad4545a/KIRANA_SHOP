@@ -5,6 +5,19 @@ import { logger } from '../config/logger';
 
 const router = Router();
 
+router.get('/', (_req: Request, res: Response): void => {
+  res.status(HTTP_STATUS.OK).json({
+    success: true,
+    message: 'Kirana Store POS API Backend is Live',
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+  });
+});
+
+router.head('/', (_req: Request, res: Response): void => {
+  res.status(HTTP_STATUS.OK).end();
+});
+
 router.get('/health', (_req: Request, res: Response): void => {
   res.status(HTTP_STATUS.OK).json({
     success: true,
